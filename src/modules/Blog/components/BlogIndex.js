@@ -4,7 +4,13 @@ import Helmet from 'react-helmet'
 
 const BlogIndex = () => (
   <div>
-    <Helmet title="Blog" />
+
+    {/* will only show on the blog index page */}
+    <Helmet>
+      <title>Blog List</title>
+      <body className="bodywrapper-blog bodywrapper-blog-index" />
+    </Helmet>
+
     <h1>Blog</h1>
   </div>
 )

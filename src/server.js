@@ -31,7 +31,7 @@ export const render = location => new Promise((resolve, reject) => {
         </Provider>
       )
       const state = store.getState()
-      const helmet = Helmet.rewind()
+      const helmet = Helmet.renderStatic()
       const status = rewind()
       const html = ReactDOMServer.renderToStaticMarkup(<Html assets={ assets } markup={ markup } state={ state } helmet={ helmet } />)
       const body = doctype + html
