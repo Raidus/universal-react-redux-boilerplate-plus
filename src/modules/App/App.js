@@ -1,21 +1,48 @@
 // @flow
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 
+/*
+  Import all the Actions from a Component's "redux" file.
+  All exports should be actions(or action creators) only.
+*/
+import * as blogActions from '../Blog/redux'
+
 import Header from './components/Header'
+
+export const mapStateToProps = state => {
+    return {
+        redux: {
+            blog: {
+                articles: state.blog.articles,
+                article: state.blog.article,
+                // yourSliceOfState: state.blog.yourSliceOfState
+            }
+        }
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return { actions : {...bindActionCreators({...blogActions}, dispatch) } }
+}
 
 class App extends Component {
 
   static displayName = 'App';
 
   static propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
+    actions: PropTypes.object.isRequired,
+    redux: PropTypes.object.isRequired
   };
 
   render() {
     const styles = require('./App.scss')
 
-    const { children } = this.props
+    const { children, redux, actions } = this.props
 
     return (
       <div className={ styles.container }>
@@ -29,14 +56,14 @@ class App extends Component {
         </Helmet>
 
         <Header />
-        { children }
+        {React.cloneElement(children, {redux: redux, actions: actions})}
 
       </div>
     )
   }
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 
 

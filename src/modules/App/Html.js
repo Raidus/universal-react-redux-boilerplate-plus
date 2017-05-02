@@ -1,5 +1,6 @@
 // @flow
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // `getStyles` is to prevent FOUC in development
 const getStyles = assets =>

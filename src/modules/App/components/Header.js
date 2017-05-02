@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <header className={ styles.Header }>
-      <Link to="/" className={ styles.logo }>Universal React + Redux Boilerplate</Link>
+      <Link to="/" className={ styles.logo }>Universal React + Redux Boilerplate - Server Side Rendering (SSR)</Link>
       <nav className={ styles.nav }>
         <ul className={ styles.navList }>
           <li className={ styles.navListItem }>
