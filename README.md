@@ -1,3 +1,5 @@
+**Be sure to read [how to setup a NodeJS environment on Amazon AWS](https://github.com/ccurtin/universal-react-redux-boilerplate-plus/wiki/Creating-a-Node.js-Server-on-AWS-and-Running-a-Universal-React-Redux-App.) and get this boilerplate up and running in a live environment1**
+
 # Universal React + Redux Boilerplate
 
 [![NPM Version](https://img.shields.io/npm/v/universal-react-redux-boilerplate.svg)](https://npmjs.org/package/universal-react-redux-boilerplate)
