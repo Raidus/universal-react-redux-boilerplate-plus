@@ -39,8 +39,8 @@ Despite my aim to make this the easiest understandable boilerplate you will find
 ## Let’s get started!
 
 ```bash
-git clone https://github.com/CrocoDillon/universal-react-redux-boilerplate.git
-cd universal-react-redux-boilerplate
+git clone https://github.com/ccurtin/universal-react-redux-boilerplate-plus.git
+cd universal-react-redux-boilerplate-plus
 npm install
 ```
 
