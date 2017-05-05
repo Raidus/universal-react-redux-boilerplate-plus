@@ -28,7 +28,11 @@ if (__DEV__) {
       ]
     },
     resolve: {
-      extensions: ['.js']
+      extensions: ['.js', '.jsx', '.css', '.scss', ],
+        // JS imports.
+        alias: {
+            "_shared": path.resolve(__dirname, 'src/modules/App/styles/shared'),
+        },
     },
     output: {
       path: path.join(__dirname, 'dist'),
@@ -51,8 +55,18 @@ if (__DEV__) {
           loaders: [
             'style-loader',
             'css-loader?modules&localIdentName=[local]__[hash:base64:4]&importLoaders=1&sourceMap',
-            'postcss-loader',
-            'sass-loader?sourceMap'
+            'postcss-loader?sourceMap=inline',
+            // 'sass-loader?sourceMap',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  // Or array of paths
+                  resources:  [
+                    path.resolve(__dirname, './src/modules/App/styles/_variables.scss'),
+                    path.resolve(__dirname, './src/modules/App/styles/_mixins.scss')
+                  ]
+                },
+              },
           ]
         }
       ]
@@ -80,7 +94,11 @@ if (__PROD__) {
       app: './client.js'
     },
     resolve: {
-      extensions: ['.js']
+      extensions: ['.js', '.jsx', '.css', '.scss', ],
+        // JS imports.
+        alias: {
+            "_shared": path.resolve(__dirname, 'src/modules/App/styles/shared'),
+        },
     },
     output: {
       path: path.join(__dirname, 'dist'),
@@ -103,8 +121,16 @@ if (__PROD__) {
             fallbackLoader: 'style-loader',
             loader: [
               'css-loader?modules&localIdentName=[hash:base64:4]&importLoaders=1&sourceMap',
-              'postcss-loader',
-              'sass-loader?sourceMap'
+              'postcss-loader?sourceMap=inline',
+              // 'sass-loader?sourceMap',
+                {
+                    loader: 'sass-resources-loader',
+                    options: {
+                      resources:  [
+                        path.resolve(__dirname, './src/modules/App/styles/_variables.scss'),
+                        path.resolve(__dirname, './src/modules/App/styles/_mixins.scss')  ]
+                  }
+                }
             ]
           })
         }

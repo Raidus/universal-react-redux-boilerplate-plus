@@ -5,6 +5,9 @@ import Helmet from 'react-helmet'
 
 import Header from './components/Header'
 
+import globalStyles from './styles/_globalStyles.scss'
+import styles from './App.scss'
+
 class App extends Component {
 
   static displayName = 'App';
@@ -14,7 +17,6 @@ class App extends Component {
   };
 
   render() {
-    const styles = require('./App.scss')
 
     const { children } = this.props
 

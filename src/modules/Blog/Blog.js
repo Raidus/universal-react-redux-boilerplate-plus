@@ -7,8 +7,9 @@ import Helmet from 'react-helmet'
 
 import { fetchArticles, getArticles } from './redux'
 
+import styles from './Blog.scss'
+
 export const Blog = (props: Object) => {
-  const styles = require('./Blog.scss')
 
   const { children, articles } = props
 

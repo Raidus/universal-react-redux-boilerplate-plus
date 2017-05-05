@@ -1,5 +1,7 @@
 .Header {
-  background: #546e7a;
+  background: $colors.base;
+  position: relative;
+  z-index: 1;
 
   &::after {
     content: '';
@@ -37,5 +39,5 @@
 
 .active {
   padding-bottom: 0.25em;
-  border-bottom: 0.25em solid #fff;
+  border-bottom: 0.25em solid $colors.accent;
 }
